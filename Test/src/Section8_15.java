@@ -9,6 +9,7 @@ public class Section8_15 {
 	static ArrayList pizzaList;
 	static Point[] pickedPizza;
 	static int count;
+	static int answer = Integer.MAX_VALUE;
 	public static void main() {
 		Section8_15 T = new Section8_15();
 		Scanner sc = new Scanner(System.in);
@@ -31,16 +32,27 @@ public class Section8_15 {
 			}
 		}
 		
-		count = 0;
 		pickedPizza = new Point[M];
 		T.DFS(0, 0);
-		System.out.println(count);
+		System.out.println(answer);
 	}
 	
 	private void DFS(int L, int index) {
 		if (L == M) {
 			// 이중 for문
-			count++;
+			int result = 0;
+			for (int i = 0; i < cityList.size(); i++) {
+				int dis = Integer.MAX_VALUE;
+				for (int j = 0; j < pickedPizza.length; j++) {
+					Point city = (Section8_15.Point) cityList.get(i);
+					Point pizza = pickedPizza[j];
+					int newDis = Math.abs(city.x - pizza.x) + Math.abs(city.y - pizza.y);
+					dis = Math.min(dis, newDis);
+				}
+				result += dis;
+			}
+			
+			answer = Math.min(answer, result);
 		} else {
 			for (int i = index; i < pizzaList.size(); i++) {
 				pickedPizza[L] = (Section8_15.Point) pizzaList.get(i);
