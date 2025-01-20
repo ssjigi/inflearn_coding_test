@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 // 최대점수 구하기 (DFS 조합으로 품)
-// 채점결과 : 158ms memory 27mb
+// 채점결과 : 175ms memory 27mb
 public class Section10_6 {
 	static int N; // 문제 개수
 	static int M; // 푸는데 걸리는 전체 시간
@@ -22,9 +22,10 @@ public class Section10_6 {
 			}
 		}
 		
-		for (int i = 0; i < N; i++) {
-			T.DFS(i, 0, 0);	
-		}
+//		for (int i = 0; i < N; i++) {
+//			T.DFS(i, 0, 0);	
+//		}
+		T.DFS(0, 0, 0);	
 		
 		System.out.println(answer);
 	}

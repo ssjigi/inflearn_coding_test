@@ -9,7 +9,11 @@ public class Main {
 		//Section8_10.main();
 		//Section8_11.main();
 		
-		Section10_4.main();
+		//Section10_4.main(); // fail, 시간초과      
+		//Section10_6.main(); // pass, dfs 조합으로 품
+		
+		Section6_8.main();
+		
 	}
 }
 
